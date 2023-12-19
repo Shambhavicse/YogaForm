@@ -1,0 +1,92 @@
+﻿@model yogaForm.Models.Class1
+
+@{
+    ViewBag.Title = "Registration";
+}
+
+<h2>Online Yoga Class Registration Form</h2>
+
+@using (Html.BeginForm("Registration", "Default", FormMethod.Post))
+{
+    @Html.ValidationSummary(true)
+
+    <table>
+       <tr>
+           <td>
+               @Html.LabelFor(m => m.FirstName)<br /><br />
+           </td>
+           <td>
+               @Html.TextBoxFor(m => m.FirstName)<br/><br/>
+               @Html.ValidationMessageFor(m => m.FirstName)
+           </td>
+        </tr>
+       <tr>
+           <td>
+               @Html.LabelFor(m => m.LastName)<br /><br />
+           </td>
+           <td>
+               @Html.TextBoxFor(m => m.LastName)<br /><br />
+               @Html.ValidationMessageFor(m => m.LastName)
+           </td>
+       </tr>
+       <tr>
+           <td>
+               @Html.LabelFor(m => m.Email)<br /><br />
+           </td>
+           <td>
+               @Html.TextBoxFor(m => m.Email)<br /><br />
+               @Html.ValidationMessageFor(m => m.Email)
+           </td>
+       </tr>
+       <tr>
+           <td>
+               @Html.LabelFor(m => m.PhoneNo)<br /><br />
+           </td>
+           <td>
+               @Html.TextBoxFor(m => m.PhoneNo)<br /><br />
+               @Html.ValidationMessageFor(m => m.PhoneNo)
+           </td>
+       </tr>
+       <tr>
+           <td>
+               @Html.LabelFor(m => m.Gender)<br /><br />
+           </td>
+           <td>
+               @Html.RadioButtonFor(m => m.Gender, "Male") Male<br />
+               @Html.RadioButtonFor(m => m.Gender, "Female") Female<br /><br />
+               @Html.ValidationMessageFor(m => m.Gender)
+           </td>
+       </tr>
+       <tr>
+           <td>
+               @Html.LabelFor(m => m.Dob)<br /><br />
+           </td>
+           <td>
+               @Html.TextBoxFor(m => m.Dob, "{0:yyyy-MM-dd}", new { type = "date" })<br /><br />
+               @Html.ValidationMessageFor(m => m.Dob)
+           </td>
+               </tr>
+       <tr>
+           <td>
+               @Html.LabelFor(m => m.Batch)<br /><br />
+           </td>
+           <td>
+               @Html.RadioButtonFor(m => m.Batch, "6-7AM") 6-7AM<br />
+               @Html.RadioButtonFor(m => m.Batch, "7-8AM") 7-8AM<br />
+               @Html.RadioButtonFor(m => m.Batch, "8-9AM") 8-9AM<br />
+               @Html.RadioButtonFor(m => m.Batch, "5-6PM") 5-6PM<br />
+               @Html.ValidationMessageFor(m => m.Batch)<br /><br />
+           </td>
+       </tr>
+       <tr>
+           <td>
+               @Html.CheckBoxFor(m => m.EnrollFor500Rs)
+               
+           </td>
+           <td>
+               @Html.LabelFor(m => m.EnrollFor500Rs)
+           </td>
+           </tr>
+</table>
+    <center>  <input type="submit" value="Submit" /></center>
+}
